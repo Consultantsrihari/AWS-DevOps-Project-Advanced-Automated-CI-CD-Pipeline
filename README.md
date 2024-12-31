@@ -11,8 +11,8 @@ Monitoring: Implemented using Prometheus and Grafana.
 
 ### Pre-requisites
 AWS Account.
-# Terraform installed locally.
-# Kubectl and Helm installed.
+Terraform installed locally.
+Kubectl and Helm installed.
 Jenkins installed and configured.
 Docker installed.
 Prometheus and Grafana configured for monitoring.
@@ -26,3 +26,15 @@ helm repo add jenkinsci https://charts.jenkins.io
 helm repo update
 helm install jenkins jenkinsci/jenkins
 Access Jenkins UI and install required plugins (e.g., Docker, Kubernetes, Git, Pipeline).
+
+### Step 3: Deploy Kubernetes Cluster and Microservices
+
+kubectl apply -f microservice-deployment.yaml
+
+### Step 4: Configure Istio Service Mesh
+Install Istio
+istioctl install --set profile=demo -y
+kubectl label namespace default istio-injection=enabled
+
+kubectl apply -f virtualservice.yaml
+
