@@ -11,8 +11,11 @@ Monitoring: Implemented using Prometheus and Grafana.
 
 ### Pre-requisites
 AWS Account.
-Terraform installed locally.
-Kubectl and Helm installed.
+#Terraform installed locally.
+#Kubectl and Helm installed.
 Jenkins installed and configured.
 Docker installed.
 Prometheus and Grafana configured for monitoring.
+
+##Step 1: Provision Infrastructure with Terraform
+Terraform Configuration (main.tf)
