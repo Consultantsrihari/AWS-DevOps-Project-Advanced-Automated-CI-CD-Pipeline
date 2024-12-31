@@ -1,0 +1,25 @@
+pipeline {
+  agent any
+  stages {
+    stage('Checkout Code') {
+      steps {
+        checkout scm
+      }
+    }
+    stage('Build Docker Image') {
+      steps {
+        sh 'docker build -t myregistry/sample-app:latest .'
+      }
+    }
+    stage('Push to Registry') {
+      steps {
+        sh 'docker push myregistry/sample-app:latest'
+      }
+    }
+    stage('Deploy to Kubernetes') {
+      steps {
+        sh 'kubectl apply -f microservice-deployment.yaml'
+      }
+    }
+  }
+}
