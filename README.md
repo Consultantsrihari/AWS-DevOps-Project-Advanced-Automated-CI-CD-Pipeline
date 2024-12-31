@@ -11,11 +11,18 @@ Monitoring: Implemented using Prometheus and Grafana.
 
 ### Pre-requisites
 AWS Account.
-#Terraform installed locally.
-#Kubectl and Helm installed.
+# Terraform installed locally.
+# Kubectl and Helm installed.
 Jenkins installed and configured.
 Docker installed.
 Prometheus and Grafana configured for monitoring.
 
-##Step 1: Provision Infrastructure with Terraform
+### Step 1: Provision Infrastructure with Terraform
 Terraform Configuration (main.tf)
+
+### Step 2: Deploy Jenkins for CI/CD
+Helm Chart for Jenkins
+helm repo add jenkinsci https://charts.jenkins.io
+helm repo update
+helm install jenkins jenkinsci/jenkins
+Access Jenkins UI and install required plugins (e.g., Docker, Kubernetes, Git, Pipeline).
